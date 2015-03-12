@@ -30,7 +30,7 @@ public class HelloWorld extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
                 System.out.println("Teste!");
-                System.out.println("Carolini!");
+             
                 
                 
             }
