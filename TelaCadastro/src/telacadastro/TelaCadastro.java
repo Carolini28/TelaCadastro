@@ -36,7 +36,7 @@ public class TelaCadastro extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-         primaryStage.setTitle("Bem vindo ao Cadastro!");
+        primaryStage.setTitle("Bem vindo ao Cadastro!");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
