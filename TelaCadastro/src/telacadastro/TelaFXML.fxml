@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+
+
+
+<GridPane fx:controller="telacadastro.TelaController" 
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+
+    <Text text="Cadastro de Aluno" 
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+ 
+    <Label text="RA:" 
+           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+ 
+    <TextField fx:id="tfN1" 
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+ 
+    <Label text="Nome"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+ 
+    
+    <TextField fx:id="tfN2" 
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    
+    <Label text="Sexo:"
+                GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    
+    <RadioButton fx:id="rb1" text="F" selected="true"  
+        GridPane.columnIndex="1" GridPane.rowIndex="3"  />
+    
+    <RadioButton fx:id="rb2" text="M" 
+         GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    
+    
+    <Label text="Estado"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+ 
+    <ChoiceBox fx:id="cbOperacoes"  layoutX="396" layoutY="66" prefWidth="61" prefHeight="24" maxWidth="23" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <items>
+            <FXCollections fx:id="collOperacoes"  fx:factory="observableArrayList">
+                <String fx:value="MS"/>
+                <String fx:value="MT"/>
+                <String fx:value="AC"/>
+                <String fx:value="SP"/>
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    
+    <CheckBox fx:id="C" text="Ativo"   
+          GridPane.columnIndex="1" GridPane.rowIndex="5"  />
+    
+    
+    <HBox spacing="10" alignment="bottom_right" 
+          GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button text="Salvar"     
+                onAction="#Mostrar"/>
+    </HBox>
+    
+    <HBox spacing="10" alignment="BOTTOM_LEFT" 
+          GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <Button text="Limpar"     
+                />
+    </HBox>
+
+    <Text fx:id="txtMensagem"
+          GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    
+</GridPane>
