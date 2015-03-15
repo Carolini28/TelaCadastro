@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?xml version="1.0" encoding="UTF-8"?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
@@ -10,45 +8,54 @@
 <?import javafx.collections.*?>
 
 
-
 <GridPane fx:controller="telacadastro.TelaController" 
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="15" vgap="12">
     <padding>
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
+    <stylesheets>
+         <URL value="@TelaCadastro.css"/>
+   </stylesheets>
 
-    <Text text="Cadastro de Aluno" 
-          GridPane.columnIndex="0" GridPane.rowIndex="0"
-          GridPane.columnSpan="2"/>
+   <Text id="welcome-text" text="Cadastro de Aluno!" 
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        GridPane.columnSpan="2"/>
  
-    <Label text="RA:" 
-           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Usuário:"
+        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
  
-    <TextField fx:id="tfN1" 
-               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField  fx:id="txt1" text="" 
+        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
  
-    <Label text="Nome"
-           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="RA:"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
  
-    
-    <TextField fx:id="tfN2" 
-                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <TextField  fx:id="txt2" text="" 
+        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
     
     <Label text="Sexo:"
                 GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     
-    <RadioButton fx:id="rb1" text="F" selected="true"  
-        GridPane.columnIndex="1" GridPane.rowIndex="3"  />
+    <HBox GridPane.columnIndex="1"   GridPane.rowIndex="3">
+     <HBox>
+	<fx:define>
+		<ToggleGroup fx:id="myToggleGroup"/> 
+	</fx:define>
+
+	<children>
+		<RadioButton fx:id="f" text="F" toggleGroup="$myToggleGroup" selected="true" /> 
+		<RadioButton fx:id="m"  text="M" toggleGroup="$myToggleGroup" /> 
+		
+	</children>
+     </HBox>
+    </HBox>     
     
-    <RadioButton fx:id="rb2" text="M" 
-         GridPane.columnIndex="2" GridPane.rowIndex="3" />
-    
-    
+
     <Label text="Estado"
-           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+           GridPane.columnIndex="0" GridPane.rowIndex="5"/>
  
-    <ChoiceBox fx:id="cbOperacoes"  layoutX="396" layoutY="66" prefWidth="61" prefHeight="24" maxWidth="23" GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <ChoiceBox fx:id="cbOperacoes"  layoutX="396" layoutY="66" prefWidth="61" prefHeight="24" maxWidth="23" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <items>
             <FXCollections fx:id="collOperacoes"  fx:factory="observableArrayList">
                 <String fx:value="MS"/>
@@ -59,23 +66,26 @@
         </items>
     </ChoiceBox>
     
-    <CheckBox fx:id="C" text="Ativo"   
-          GridPane.columnIndex="1" GridPane.rowIndex="5"  />
+    <Label text="Ativo:"
+        GridPane.columnIndex="0" GridPane.rowIndex="6"/>
     
+    <CheckBox fx:id="C"   
+          GridPane.columnIndex="1" GridPane.rowIndex="6"  />
     
     <HBox spacing="10" alignment="bottom_right" 
-          GridPane.columnIndex="1" GridPane.rowIndex="6">
+          GridPane.columnIndex="1" GridPane.rowIndex="7">
         <Button text="Salvar"     
-                onAction="#Mostrar"/>
+              onAction="#Mostrar"/>
     </HBox>
     
     <HBox spacing="10" alignment="BOTTOM_LEFT" 
-          GridPane.columnIndex="0" GridPane.rowIndex="6">
+          GridPane.columnIndex="0" GridPane.rowIndex="7">
         <Button text="Limpar"     
-                />
+               onAction="#LimparCampos"/>
     </HBox>
 
     <Text fx:id="txtMensagem"
-          GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+          GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    
     
 </GridPane>

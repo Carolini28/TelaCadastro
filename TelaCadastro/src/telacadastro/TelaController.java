@@ -12,6 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
 /**
@@ -22,26 +23,46 @@ import javafx.scene.text.Text;
 
 public class TelaController {
     
-    @FXML private Text txtMensagem;
-    @FXML private TextField tfN1;
-    @FXML private TextField tfN2;
-    @FXML  RadioButton rb1;
-    @FXML  RadioButton rb2;
-    @FXML private CheckBox C;
-    
-    
-    @FXML private ChoiceBox cbOperacoes;
+    @FXML  Text txtMensagem;
+    @FXML  TextField txt1;
+    @FXML  TextField txt2;
+    @FXML  ToggleGroup myToggleGroup;
+    @FXML  RadioButton m;
+    @FXML  CheckBox C;
+    @FXML  ChoiceBox cbOperacoes;
     
     
     @FXML
     protected void Mostrar(ActionEvent event) {
         
-      String n1 = tfN1.getText();
-      String n2 = tfN2.getText();
+      String n1 = txt1.getText();
+      String n2 = txt2.getText();
       String cb = cbOperacoes.getValue().toString();
+      String sexo = String.format(myToggleGroup.getSelectedToggle().toString());
+      Boolean r1 = m.isSelected();
+      Boolean CB = C.isSelected();
       
-      txtMensagem.setText(cb.toString()+n2 + n1);
+      if(CB){
+          if(r1){
+                txtMensagem.setText("Você Digitou: \n" +"Nome: " +  n1 + "\n" + "RA: " + n2 + "\n"+ "Perfil: Ativo" + "\n" + "Sexo: " + "Masculino" + "\n" + "Estado: " +cb);
+          }else{
+                txtMensagem.setText("Você Digitou: \n" +"Nome: " +  n1 + "\n" + "RA: " + n2 + "\n"+ "Perfil: Ativo" + "\n" + "Sexo: " + "Feminino" + "\n" + "Estado: " +cb);
+          }
+          
+      }else{ 
+        if(r1){  
+            txtMensagem.setText("Você Digitou: \n" +"Nome: " +  n1 + "\n" + "RA: " + n2 + "\n" + "Sexo: " + "Masculino" + "\n" + "Estado: " +cb);
+        }else{
+            txtMensagem.setText("Você Digitou: \n" +"Nome: " +  n1 + "\n" + "RA: " + n2 + "\n" + "Sexo: " + "Feminino"  + "\n" + "Estado: " +cb);
+        }
+      }
       
+    }
+    
+    @FXML
+    protected void LimparCampos(ActionEvent event){
+        txt1.setText(null);
+        txt2.setText(null);
     }
     
 }

@@ -10,8 +10,10 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -35,7 +37,20 @@ import javafx.stage.Stage;
 public class TelaCadastro extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception{
+       try{ 
+        Parent root = FXMLLoader.load(getClass().getResource("TelaFXML.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        primaryStage.setTitle("Bem vindo ao Cadastro!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+       }catch(Exception e){
+       
+          System.out.println(e);
+       }
+       /* 
         primaryStage.setTitle("Bem vindo ao Cadastro!");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -113,12 +128,10 @@ public class TelaCadastro extends Application {
         scene.getStylesheets().add
         (TelaCadastro.class.getResource("TelaCadastro.css").toExternalForm());
         primaryStage.show();
+        */
     }
 
-    /**
-     *
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         launch(args);
     }
